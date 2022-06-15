@@ -6,7 +6,7 @@
   "require": {
     "php": ">=8.0",
     "symfony/framework-bundle": "^6.0",
-    "symfony/twig-bundle": "6.0.x-dev"
+    "symfony/twig-bundle": "^6.0"
   },
   "autoload": {
     "psr-4": {
