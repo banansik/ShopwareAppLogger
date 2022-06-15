@@ -20,5 +20,5 @@
       "email": "contact@wearevirtua.com"
     }
   ],
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }
