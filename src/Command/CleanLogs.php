@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Virtua\ShopwareAppLoggerBundle\Command;
 
-use App\Service\AppLogCleaner;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Virtua\ShopwareAppLoggerBundle\Service\LogsCleaner;
 
 class CleanLogs extends Command
 {
@@ -16,9 +16,9 @@ class CleanLogs extends Command
 
     protected static $defaultName = 'virtua:logs:clean';
 
-    private AppLogCleaner $appLogCleaner;
+    private LogsCleaner $appLogCleaner;
 
-    public function __construct(AppLogCleaner $appLogCleaner)
+    public function __construct(LogsCleaner $appLogCleaner)
     {
         $this->appLogCleaner = $appLogCleaner;
         parent::__construct();
