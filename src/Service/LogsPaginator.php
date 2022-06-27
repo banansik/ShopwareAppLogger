@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace Virtua\ShopwareAppLoggerBundle\Service;
 
+use App\Repository\ImojeLogRepository;
 use App\Repository\ShopwareShopRepository;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Virtua\ShopwareAppLoggerBundle\Exception\ShopwareAppLoggerShopMissingException;
-use Virtua\ShopwareAppLoggerBundle\Repository\ShopwareAppLogRepository;
 use Virtua\ShopwareAppLoggerBundle\Util\PaginationData;
 
 class LogsPaginator
 {
     public const PAGE_LIMIT = 10;
-    private ShopwareAppLogRepository $logRepository;
+    private ServiceEntityRepository $logRepository;
     private ShopwareShopRepository $shopRepository;
 
     public function __construct(
-        ShopwareAppLogRepository $logRepository,
+        ServiceEntityRepository $logRepository,
         ShopwareShopRepository $shopRepository
     ) {
         $this->logRepository = $logRepository;

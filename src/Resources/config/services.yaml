@@ -9,3 +9,6 @@ services:
       - '../src/DependencyInjection/'
       - '../src/Entity/'
       - '../src/Exception/'
+  Virtua\ShopwareAppLoggerBundle\Service\LogsPaginator:
+    arguments:
+      $logRepository: '@Virtua\ShopwareAppLoggerBundle\Repository\ShopwareAppLogRepository'
