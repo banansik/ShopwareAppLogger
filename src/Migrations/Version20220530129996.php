@@ -39,8 +39,10 @@ final class Version20220530129996 extends AbstractMigration
             REFERENCES shopware_shop (id)
         SQL;
 
-        $this->addSql($createSql);
-        $this->addSql($alterSql);
+        if (!$schema->hasTable('shopware_app_log')) {
+            $this->addSql($createSql);
+            $this->addSql($alterSql);
+        }
     }
 
     public function down(Schema $schema): void
