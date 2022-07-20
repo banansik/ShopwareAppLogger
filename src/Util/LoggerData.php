@@ -7,10 +7,10 @@ namespace Virtua\ShopwareAppLoggerBundle\Util;
 class LoggerData extends LoggerDataAbstract
 {
     public function __construct(
-        string $shopId,
-        ?string $errorMessage = null,
-        ?int $errorCode = null
+        ?string $channel = null,
+        ?string $level = null,
+        ?int $message = null
     ) {
-        parent::__construct($shopId, $errorMessage, $errorCode);
+        parent::__construct($channel, $level, $message);
     }
 }
