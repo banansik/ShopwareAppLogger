@@ -83,7 +83,7 @@ abstract class LoggerDataAbstract
      * @param string|null $appMessage
      * @param array|null $appData
      */
-    public function setContext(?string $appMessage, ?array $appData): void
+    public function setContext(?string $appMessage, ?array $appData = null): void
     {
         $this->context = [
             'source' => 'shopware App',
