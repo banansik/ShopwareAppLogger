@@ -8,47 +8,72 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class LoggerDataAbstract
 {
-    protected string $shopId;
-    protected int $errorCode;
-    protected string $errorMessage;
+    protected string $channel;
+    protected int $level;
+    protected string $message;
 
+    /**
+     * LoggerDataAbstract constructor.
+     * @param string $channel
+     * @param int $level
+     * @param string $message
+     */
     public function __construct(
-        string $shopId,
-        ?string $errorMessage = null,
-        ?int $errorCode = null
-    ) {
-        $this->shopId = $shopId;
-        $this->errorMessage = $errorMessage ?? 'Something went wrong';
-        $this->errorCode = $errorCode ?? Response::HTTP_BAD_REQUEST;
+        ?string $channel = null,
+        ?int $level = null,
+        ?string $message = null
+    )
+    {
+        $this->channel = $channel ?? 'Application';
+        $this->level = $level ?? Response::HTTP_INTERNAL_SERVER_ERROR;
+        $this->message = $message ?? 'Something went wrong.';
     }
 
-    public function getShopId(): string
+    /**
+     * @return string
+     */
+    public function getChannel(): string
     {
-        return $this->shopId;
+        return $this->channel;
     }
 
-    public function setShopId(string $shopId): void
+    /**
+     * @param string $channel
+     */
+    public function setChannel(string $channel): void
     {
-        $this->shopId = $shopId;
+        $this->channel = $channel;
     }
 
-    public function getErrorCode(): int
+    /**
+     * @return int
+     */
+    public function getLevel(): int
     {
-        return $this->errorCode;
+        return $this->level;
     }
 
-    public function setErrorCode(int $errorCode): void
+    /**
+     * @param int $level
+     */
+    public function setLevel(int $level): void
     {
-        $this->errorCode = $errorCode;
+        $this->level = $level;
     }
 
-    public function getErrorMessage(): string
+    /**
+     * @return string
+     */
+    public function getMessage(): string
     {
-        return $this->errorMessage;
+        return $this->message;
     }
 
-    public function setErrorMessage(string $errorMessage): void
+    /**
+     * @param string $message
+     */
+    public function setMessage(string $message): void
     {
-        $this->errorMessage = $errorMessage;
+        $this->message = $message;
     }
 }
